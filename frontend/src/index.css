@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+    cursor: pointer;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 9);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+#bellDot {
+    animation: 1s colorChange 0.1s infinite;
+    transition: 0.1s;
+}
+
+@keyframes colorChange {
+    0% {
+        fill: gray;
+    }
+    50% {
+        fill: rgb(255, 42, 42);
+    }
+    100% {
+        fill: gray;
+    }
+}
