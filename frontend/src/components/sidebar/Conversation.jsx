@@ -1,7 +1,7 @@
 import { useSocketContext } from "../../context/SocketContext";
 import useConversation from "../../zustand/useConversation";
 
-const Conversation = ({ conversation, emoji }) => {
+const Conversation = ({ conversation }) => {
     const { selectedConversation, setSelectedConversation } = useConversation();
 
     const isSelected = selectedConversation?._id === conversation._id;
@@ -10,7 +10,7 @@ const Conversation = ({ conversation, emoji }) => {
 
     return <li
         className={ `cursor-pointer
-        ${ isSelected ? "rounded-md bg-gray-200" : "" }
+        ${ isSelected ? "rounded-md bg-gray-500" : "" }
       ` }
         onClick={ () => setSelectedConversation(conversation) }
     >
@@ -27,8 +27,7 @@ const Conversation = ({ conversation, emoji }) => {
 
             <div className="flex flex-col flex-1">
                 <div className="flex gap-3 justify-between items-center">
-                    <p className="font-bold text-gray-600">{ conversation.username }</p>
-                    <span className="text-xl">{ emoji }</span>
+                    <p className="font-bold text-gray-300">{ conversation.username }</p>
                 </div>
             </div>
 

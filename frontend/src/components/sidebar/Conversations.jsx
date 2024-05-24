@@ -1,16 +1,14 @@
 import useGetConversation from "../../hooks/useGetConversation";
-import { getRandomEmoji } from "../../utils/emojis";
 import Conversation from "./Conversation";
 
 const Conversations = () => {
     const { loading, conversations } = useGetConversation();
 
-    return <div className="menu menu-md rounded-box w-full">
+    return <div className="menu w-full">
         { conversations.map((conversation) => (
             <Conversation
                 key={ conversation._id }
                 conversation={ conversation }
-                emoji={ getRandomEmoji() }
             />
         )) }
 

@@ -13,7 +13,7 @@ const Messages = () => {
         }, 100);
     }, [ messages ]);
 
-    return <div className="px-4 flex-1 overflow-auto border border-gray-200 rounded-md p-5 ">
+    return <div className="px-4 flex-1 overflow-auto p-5 ">
         { !loading && messages.length > 0 && messages.map((message) => (
             <div
                 key={ message._id }

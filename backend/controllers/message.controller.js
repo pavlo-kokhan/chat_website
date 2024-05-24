@@ -9,7 +9,7 @@ const getMessages = async (req, res) => {
 
         const conversation = await Conversation.findOne({
             participants: { $all: [ senderId, userToChatId ] }
-        }).populate("messages");
+        }).populate("messages"); // Populate from array of ids to array of messages objects
 
         if (!conversation) {
             return res.status(200).json([]);
@@ -31,6 +31,7 @@ const sendMessage = async (req, res) => {
         const { id: receiverId } = req.params;
         const senderId = req.user._id;
 
+        // Find conversation where participants array contains senderId and receiverId
         let conversation = await Conversation.findOne({
             participants: { $all: [ senderId, receiverId ] }
         });

@@ -19,14 +19,15 @@ const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // https://avatar-placeholder.iran.liara.run/
-        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${ username }`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${ username }`;
+        // const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${ username }`;
+        // const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${ username }`;
+        const boyProfilePic = `https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg?username=${ username }`;
+        const girlProfilePic = `https://t4.ftcdn.net/jpg/04/44/81/51/360_F_444815152_MuNBOsOCP45r83AZLLVnjuPHx9c6XRrw.jpg?username=${ username }`;
 
-        if (!boyProfilePic || !girlProfilePic) {
-            boyProfilePic = "https://www.flaticon.com/free-icon/profile_3135715";
-        }
+        // if (!boyProfilePic || !girlProfilePic) {
+        //     boyProfilePic = "https://www.flaticon.com/free-icon/profile_3135715";
+        // }
 
-        // mysql
         const existingUser = await query("SELECT username FROM users WHERE username = ?", [ username ]);
 
         if (existingUser.length > 0) {
@@ -66,7 +67,6 @@ const login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        //mysql
         const results = await query("SELECT * FROM users WHERE username = ?", [ username ]);
 
         if (results.length > 0) {
@@ -90,26 +90,6 @@ const login = async (req, res) => {
         } else {
             return res.status(400).json({ error: "Invalid username or password" });
         }
-
-        //mongodb
-        // const user = await User.findOne({username})
-        // const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
-
-        // if (!user || !isPasswordCorrect) {
-        //     return res.status(400).json({error: "Invalid username or password"});
-        // }
-
-        // generateTokenAndSetCookie(user._id, res);
-
-        // res.status(200).json({
-        //     _id: user._id,
-        //     username: user.username,
-        //     gender: user.gender, 
-        //     group: user.group, 
-        //     date: user.date,
-        //     profilePic: user.profilePic
-        // });
-
     } catch (error) {
         console.log("Error in login controller", error.message);
         res.status(500).json({ error: "Internal Server Error" });

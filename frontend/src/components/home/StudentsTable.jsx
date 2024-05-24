@@ -7,7 +7,7 @@ const StudentsTable = () => {
     return <div>
 
         <div className="overflow-x-auto">
-            <table className="table table-zebra">
+            <table className="table text-base">
 
                 <thead>
                 <tr>
@@ -16,13 +16,13 @@ const StudentsTable = () => {
                             <input type="checkbox" className="checkbox"/>
                         </label>
                     </th>
-                    <th>№</th>
-                    <th>Username</th>
-                    <th>Group</th>
-                    <th>Gender</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Funcs</th>
+                    <th className="p-6">№</th>
+                    <th className="p-6">Username</th>
+                    <th className="p-6">Group</th>
+                    <th className="p-6">Gender</th>
+                    <th className="p-6">Birth Date</th>
+                    <th className="p-6">Status</th>
+                    <th className="p-6">Tools</th>
                 </tr>
                 </thead>
                 <tbody>

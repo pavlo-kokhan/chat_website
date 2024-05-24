@@ -9,7 +9,7 @@ const SignUp = () => {
         confirmPassword: "",
         gender: "male",
         group: "pz-21",
-        date: "2012-12-12"
+        date: "2005-01-01"
     });
 
     const { loading, signup } = useSignup();
@@ -22,9 +22,8 @@ const SignUp = () => {
     return <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
         <div
             className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-            <h1 className="text-3xl font-semibold text-center text-gray-600">
+            <h1 className="text-3xl font-semibold text-center text-blue-500">
                 Sing Up
-                <span className="text-blue-500"> CMS</span>
             </h1>
 
             <form onSubmit={ handleSubmit }>
@@ -37,7 +36,7 @@ const SignUp = () => {
                         onChange={ (e) => setInputs({ ...inputs, username: e.target.value }) }
                         type="text"
                         placeholder="Enter username"
-                        className="w-full input input-bordered h-10"
+                        className="w-full input input-bordered h-10 mb-2"
                     />
                 </div>
 
@@ -50,7 +49,7 @@ const SignUp = () => {
                         onChange={ (e) => setInputs({ ...inputs, password: e.target.value }) }
                         type="password"
                         placeholder="Enter password"
-                        className="w-full input input-bordered h-10"
+                        className="w-full input input-bordered h-10 mb-2"
                     />
                 </div>
 
@@ -63,7 +62,7 @@ const SignUp = () => {
                         onChange={ (e) => setInputs({ ...inputs, confirmPassword: e.target.value }) }
                         type="password"
                         placeholder="Enter password"
-                        className="w-full input input-bordered h-10"
+                        className="w-full input input-bordered h-10 mb-2"
                     />
                 </div>
 
@@ -74,7 +73,7 @@ const SignUp = () => {
                     <select
                         value={ inputs.gender }
                         onChange={ (e) => setInputs({ ...inputs, gender: e.target.value }) }
-                        className="select select-bordered w-full h-10"
+                        className="select select-bordered w-full h-10 mb-2"
                     >
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -88,11 +87,15 @@ const SignUp = () => {
                     <select
                         value={ inputs.group }
                         onChange={ (e) => setInputs({ ...inputs, group: e.target.value }) }
-                        className="select select-bordered w-full h-10"
+                        className="select select-bordered w-full h-10 mb-2"
                     >
                         <option value="pz-21">PZ-21</option>
                         <option value="pz-22">PZ-22</option>
                         <option value="pz-23">PZ-23</option>
+                        <option value="pz-24">PZ-24</option>
+                        <option value="pz-25">PZ-25</option>
+                        <option value="pz-26">PZ-26</option>
+                        <option value="pz-27">PZ-27</option>
                     </select>
                 </div>
 
@@ -105,7 +108,7 @@ const SignUp = () => {
                         onChange={ (e) => setInputs({ ...inputs, date: e.target.value }) }
                         type="date"
                         placeholder="Enter password"
-                        className="w-full input input-bordered h-10"
+                        className="w-full input input-bordered h-10 mb-2"
                     />
                 </div>
 

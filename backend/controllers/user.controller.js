@@ -9,8 +9,6 @@ const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
 
-        // const fillteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
-
         const fillteredUsers = await query("SELECT _id, username, gender, `group`, date, profilePic FROM users WHERE _id != ?", [ loggedInUserId ]);
 
         res.status(200).json(fillteredUsers);

@@ -1,6 +1,4 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/user.model.js");
-
 const util = require("util");
 const db = require("../db/connectToMySql.js");
 
@@ -22,8 +20,6 @@ const protectRoute = async (req, res, next) => {
 
         const userId = decoded.userId;
         const results = await query("SELECT _id, username, gender, `group`, date, profilePic FROM users WHERE _id = ?", [ userId ]);
-
-        // const user = await User.findById(decoded.userId).select("-password");
 
         if (results.length === 0) {
             return res.status(404).json({ error: "User not found" });
